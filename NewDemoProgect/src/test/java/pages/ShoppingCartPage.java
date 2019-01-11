@@ -1,5 +1,6 @@
 package pages;
 
+import apps.WebApp;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -18,7 +19,6 @@ public class ShoppingCartPage {
     private WebElement continueShoppingButton;
 
     public ShoppingCartPage(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        PageFactory.initElements(WebApp.getDriver(), this);
     }
 }

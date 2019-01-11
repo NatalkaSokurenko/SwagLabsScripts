@@ -1,6 +1,6 @@
 package pages;
 
-import io.qameta.allure.Step;
+import apps.WebApp;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,9 +11,14 @@ import java.util.List;
 public class HomePage extends GenericWebPage{
     private WebDriver driver;
 
-    public HomePage(WebDriver driver){
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+    public HomePage(){
+        PageFactory.initElements(WebApp.getDriver(), this);
+    }
+    @FindBy(id= "shopping_cart_container")
+    private WebElement shoppingCartButton;
+
+    public boolean isHomePageOpen(){
+        return shoppingCartButton.isDisplayed();
     }
 
     @FindBy(xpath = "(//div[@class='inventory_item'])[1]")
@@ -41,7 +46,7 @@ public class HomePage extends GenericWebPage{
 //
 //    @FindBy(id= "shopping_cart_container")
 //    private WebElement shoppingCartButton;
-//
+
 //    @Step("Add product to cart")
 //    private void addProductToCart(){
 //        addToCartButton.click();

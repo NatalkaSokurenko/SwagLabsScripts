@@ -1,42 +1,24 @@
 package webtests;
+import apps.WebApp;
 import io.qameta.allure.Step;
-import org.openqa.selenium.WebDriver;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import pages.LoginPage;
-import tools.Browser;
-import java.util.concurrent.TimeUnit;
 
-public class GenericWebTest {
-    public WebDriver driver;
-    private String defaultBrowser = "chrome";
+public class GenericWebTest extends WebApp {
 
     @BeforeClass
     public void beforeClass(){
-        driver = getWebDriver();
-    }
-
-    @Step("Open browser")
-    public WebDriver getWebDriver() {
-        String browserName;
-        if(System.getProperty("browser") == null){
-            browserName = defaultBrowser;
-        } else {
-            browserName = System.getProperty("browser");
-        }
-
-        WebDriver driver = new Browser().getDriverByType(browserName);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().window().maximize();
-        return driver;
+        getDriver();
     }
     @Step("Open Web app")
-    public LoginPage openWebApp(WebDriver driver, String url){
-        driver.get(url);
-        return new LoginPage(driver);
+    public LoginPage openWebApp(String url){
+        getDriver().get(url);
+        return new LoginPage();
     }
-    @Step("Close browser")
-    public void closeBrowser(WebDriver driver){
-        driver.quit();
+    @AfterClass(alwaysRun = true)
+    public void closeBrowser(){
+        closeWebApp();
     }
 
 }
