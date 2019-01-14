@@ -18,7 +18,7 @@ public class LoginInvalidUser extends GenericWebTest {
     public void testLoginInvalidUser() {
         LoginPage loginPage = openWebApp(Constant.URL).loginInvalidUserAs(Constant.INVALID_USERNAME, Constant.PASSWORD);
 
-        Assert.assertEquals(getDriver().getCurrentUrl(), "https://www.saucedemo.com/",
-                "User is not on the Login page ");
+        Assert.assertTrue(loginPage.isErrorMessageDisplayed(),
+                "Error message is not displayed ");
     }
 }

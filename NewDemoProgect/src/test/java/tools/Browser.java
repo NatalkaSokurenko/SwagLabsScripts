@@ -32,7 +32,6 @@ public class Browser {
         driver.manage().window().maximize();
         return driver;
     }
-
     private String getOsDriverFolder(){
         String osName = getCurrentOsName();
         switch (osName){

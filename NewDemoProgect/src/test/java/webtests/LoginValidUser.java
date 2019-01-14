@@ -20,5 +20,4 @@ public class LoginValidUser extends GenericWebTest {
         Assert.assertTrue(homePage.isHomePageOpen(),
                 "User is not logged into application");
     }
-
 }

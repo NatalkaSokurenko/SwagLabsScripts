@@ -1,6 +1,5 @@
 package webtests;
 
-
 import data.Constant;
 import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
@@ -21,5 +20,4 @@ public class AddItemsToCart extends GenericWebTest{
 
 
     }
-
 }

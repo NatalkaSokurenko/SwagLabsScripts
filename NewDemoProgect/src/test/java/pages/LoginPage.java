@@ -17,6 +17,9 @@ public class LoginPage extends GenericWebPage {
     @FindBy(xpath = "//input[@type='submit']")
     private WebElement loginButton;
 
+    @FindBy(xpath = "//h3[@data-test='error']")
+    private WebElement errorMessage;
+
     public LoginPage(){
         PageFactory.initElements(WebApp.getDriver(), this);
     }
@@ -33,6 +36,10 @@ public class LoginPage extends GenericWebPage {
         usernameElement.sendKeys(username);
         passwordElement.sendKeys(password);
         loginButton.click();
+    }
+
+    public boolean isErrorMessageDisplayed(){
+        return errorMessage.isDisplayed();
     }
 
     public HomePage loginAs(String username, String password){
