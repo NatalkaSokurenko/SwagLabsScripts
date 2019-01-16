@@ -1,36 +1,72 @@
 package pages;
 
 import apps.WebApp;
-import org.openqa.selenium.WebDriver;
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.List;
+public class HomePage extends GenericWebPage {
 
-public class HomePage extends GenericWebPage{
-    private WebDriver driver;
-
-    public HomePage(){
+    public HomePage() {
         PageFactory.initElements(WebApp.getDriver(), this);
     }
-    @FindBy(id= "shopping_cart_container")
+
+    @FindBy(id = "shopping_cart_container")
     private WebElement shoppingCartButton;
 
-    public boolean isHomePageOpen(){
+    public boolean isHomePageOpen() {
         return shoppingCartButton.isDisplayed();
     }
 
-    @FindBy(xpath = "(//div[@class='inventory_item'])[1]")
-    private List<WebElement> productItems;
+    @FindBy(xpath = "//div[@class='inventory_item'][1]//*[@class='add-to-cart-button']")
+    private WebElement addToCartFirstItemButton;
 
-    private void getProductItem (String productItemName) {
-        for (int i = 0; i < productItems.size(); i++) {
-            if (productItems.get(i).getText().equals(productItemName)) {
-                productItems.get(i).getText();
-                break;
-            }
-        }
+    @FindBy(xpath = "//div[@class='inventory_item'][1]//*[@class='inventory_item_name']")
+    public WebElement firstItemNameElement;
+
+    @FindBy(xpath = "//div[@class='inventory_item'][2]//*[@class='add-to-cart-button']")
+    private WebElement addToCartSecondItemButton;
+
+    @FindBy(xpath = "//div[@class='inventory_item'][2]//*[@class='inventory_item_name']")
+    public WebElement secondItemNameElement;
+
+    public String firstItemName;
+    public String secondItemName;
+
+    @Step("Add First item to shopping cart")
+    private void addFirstItemToShoppingCart() {
+        addToCartFirstItemButton.click();
+    }
+
+    @Step("Add Second item to shopping cart")
+    private void addSecondItemToShoppingCart() {
+        addToCartSecondItemButton.click();
+    }
+
+    public ShoppingCartPage addItemsAndOpenShoppingCart() {
+        addFirstItemToShoppingCart();
+        addSecondItemToShoppingCart();
+        firstItemName = firstItemNameElement.getText();
+        secondItemName = secondItemNameElement.getText();
+        shoppingCartButton.click();
+        return new ShoppingCartPage();
+    }
+}
+
+
+
+
+//    @FindBy(xpath = "(//div[@class='inventory_item'])[1]")
+//    private List<WebElement> productItems;
+//
+//    private void getProductItem (String productItemName) {
+//        for (int i = 0; i < productItems.size(); i++) {
+//            if (productItems.get(i).getText().equals(productItemName)) {
+//                productItems.get(i).getText();
+//                break;
+//            }
+
 
 
         // @FindBy(xpath = "(//div[@class='inventory_item'])[1]")
@@ -56,4 +92,4 @@ public class HomePage extends GenericWebPage{
 //        shoppingCartButton.click();
 //        return new ShoppingCartPage(driver);
 
-    }}
+

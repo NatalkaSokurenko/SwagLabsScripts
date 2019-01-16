@@ -16,9 +16,9 @@ public class GenericWebTest extends WebApp {
         getDriver().get(url);
         return new LoginPage();
     }
-//    @AfterClass(alwaysRun = true)
-//    public void closeBrowser(){
-//        closeWebApp();
-//    }
+    @AfterClass(alwaysRun = true)
+    public void closeBrowser(){
+        closeWebApp();
+    }
 
 }

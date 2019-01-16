@@ -3,14 +3,18 @@
     <test name= "Login feature">
         <classes>
             <class name="webtests.LoginValidUser"></class>
-            <class name="webtests.LoginInvalidUser"></class>
         </classes>
     </test>
 
     <test name= "NegativeLogin">
         <classes>
             <class name="webtests.LoginInvalidUser"></class>
-            <class name="webtests.LoginValidUser"></class>
+        </classes>
+    </test>
+
+    <test name= "AddItems">
+        <classes>
+            <class name="webtests.AddItemsToCart"></class>
         </classes>
     </test>
 </suite>
