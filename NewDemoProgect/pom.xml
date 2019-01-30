@@ -11,8 +11,7 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.4.0</version>
-            <scope>test</scope>
+            <version>3.14.0</version>
         </dependency>
 
         <dependency>
@@ -34,14 +33,14 @@
             <artifactId>testng</artifactId>
             <version>6.11</version>
         </dependency>
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-support</artifactId>
-            <version>3.4.0</version>
-            <scope>test</scope>
-        </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>io.appium</groupId>
+            <artifactId>java-client</artifactId>
+            <version>7.0.0</version>
+        </dependency>
+
+    </dependencies>
     <properties>
         <aspectj.version>1.8.10</aspectj.version>
     </properties>
@@ -66,6 +65,9 @@
                     <argLine>
                         -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
                     </argLine>
+                    <systemPropertyVariables>
+                        <allure.results.directory>target/allure-results</allure.results.directory>
+                    </systemPropertyVariables>
                 </configuration>
                 <dependencies>
                     <dependency>
@@ -77,6 +79,4 @@
             </plugin>
         </plugins>
     </build>
-
-
 </project>

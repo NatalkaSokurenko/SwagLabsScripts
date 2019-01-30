@@ -2,19 +2,19 @@
 <suite name="Web Tests" verbose="1" parallel="tests" thread-count="2" group-by-instances="true">
     <test name= "Login feature">
         <classes>
-            <class name="webtests.LoginValidUser"></class>
+            <class name="tests.web_test.LoginValidUser"></class>
         </classes>
     </test>
 
     <test name= "NegativeLogin">
         <classes>
-            <class name="webtests.LoginInvalidUser"></class>
+            <class name="tests.web_test.LoginInvalidUser"></class>
         </classes>
     </test>
 
     <test name= "AddItems">
         <classes>
-            <class name="webtests.AddItemsToCart"></class>
+            <class name="tests.web_test.AddItemsToCart"></class>
         </classes>
     </test>
 </suite>
