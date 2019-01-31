@@ -41,6 +41,7 @@ public class Driver {
             caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, "7.1.1");
             caps.setCapability(MobileCapabilityType.DEVICE_NAME, "Pixel 2 API 25");
             caps.setCapability(AndroidMobileCapabilityType.AVD, "Pixel_2_API_25");
+            caps.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 300);
 
             try {
                 androidDriver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), caps);

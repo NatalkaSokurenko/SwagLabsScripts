@@ -14,9 +14,7 @@ import pages.mobile_pages.HomeScreen;
 public class AlertTest extends GenericMobileTest{
     @Test
     public void testAlert() {
-
         HomeScreen homeScreen = new HomeScreen();
-
         AlertsScreen alertsScreen = homeScreen.expandMenu().clickOnAlertsMenu().clickAlertButton();
 
         Assert.assertTrue(alertsScreen.getAlertMessageText().contains("This is the alert message"),

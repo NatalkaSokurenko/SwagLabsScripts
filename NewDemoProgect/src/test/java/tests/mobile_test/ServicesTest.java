@@ -19,7 +19,7 @@ public class ServicesTest extends GenericMobileTest{
             InputControlScreen inputControlScreen = homeScreen.expandMenu().clickOnInputControlsMenu()
                     .openRadiobuttonTab().checkServicesRadioButton();
 
-             Assert.assertTrue(inputControlScreen.getRudioButtonStatusText().contains("Services"),
+             Assert.assertEquals(inputControlScreen.getRadioButtonStatusText().contains("Services"),
                      "The Services is not selected");
     }
 }

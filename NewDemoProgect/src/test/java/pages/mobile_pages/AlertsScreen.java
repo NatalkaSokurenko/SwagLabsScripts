@@ -19,8 +19,7 @@ public class AlertsScreen extends AbstractMobileScreen {
         return this;
     }
 
-    public String getAlertMessageText(){
-        return alertMessage.getText();
+    public String getAlertMessageText(){ return alertMessage.getText();
     }
 
 

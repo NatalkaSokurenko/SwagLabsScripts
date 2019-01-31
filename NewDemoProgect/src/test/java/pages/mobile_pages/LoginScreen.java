@@ -29,7 +29,7 @@ public class LoginScreen extends AbstractMobileScreen {
         loginButton.click();
         return new LoginScreen();
     }
-
+    @Step
     public String getErrorMessageText(){
         return errorMessage.getText();
     }

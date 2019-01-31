@@ -17,7 +17,7 @@ public class LoginInvalidUserTest extends GenericMobileTest{
         HomeScreen homeScreen = new HomeScreen();
         LoginScreen loginScreen = homeScreen.expandMenu().clickOnLoginMenu().loginAs("user123","password123");
 
-        Assert.assertTrue(loginScreen.getErrorMessageText().contains("You gave me the wrong username and password"),
+        Assert.assertEquals(loginScreen.getErrorMessageText(), "You gave me the wrong username and password",
                 "Error message is not displayed");
     }
 }
